@@ -1,0 +1,19 @@
+{
+	"pages": [
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "富春山居-登录"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "富春山居-首页"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationStyle": "custom"
+	}
+}
