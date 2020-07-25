@@ -11,6 +11,18 @@
 			"style": {
 				"navigationBarTitleText": "富春山居-首页"
 			}
+		},
+		{
+			"path": "pages/guide/index",
+			"style": {
+				"navigationBarTitleText": "富春山居-到达指引"
+			}
+		},
+		{
+			"path": "pages/active/index",
+			"style": {
+				"navigationBarTitleText": "富春山居-活动"
+			}
 		}
 	],
 	"globalStyle": {

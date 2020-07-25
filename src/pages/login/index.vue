@@ -15,21 +15,23 @@
         <view class="login-card">
           <view class="account-input">
             <view class="left-icon">
-              <span class="iconfont icon-people"></span>
+              <img src="~@/static/mobile_login_slices/icon_phone@3x.png" alt="">
             </view>
             <view class="right-input">
-              <input type="text" name="" id="" placeholder="请输入您的账号" />
+              <input type="text" name="" id="" placeholder="请输入您的手机号" v-model="mobileNumber" />
             </view>
           </view>
           <view class="password-input">
             <view class="left-icon">
-              <span class="iconfont icon-safety"></span>
+              <img src="~@/static/mobile_login_slices/con_yanzheng@3x.png" alt="">
             </view>
             <view class="right-input">
-              <input type="password" name="" id="" placeholder="请输入您的密码" />
+              <input type="text" name="" id="" placeholder="请输入验证码" v-model="smsCode" />
+              <text v-if="waitTime <= 0" type="text" class="captcha-btn" @click="sendSms">获取验证码</text>
+              <text v-else class="captcha-btn disabled">{{ waitTime }}</text>
             </view>
           </view>
-          <view class="submit-btn">
+          <view class="submit-btn" @click="login">
             <span>登录</span>
           </view>
         </view>
@@ -38,8 +40,52 @@
   </view>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+import Vue from 'vue';
+import { token, user } from '../../util/storage';
+
+export default Vue.extend({
+  data() {
+    return {
+      mobileNumber: "",
+      smsCode: "",
+      waitTime: 0,
+      intervaler: 0
+    }
+  },
+  onLoad() {
+  },
+  methods: {
+    sendSms() {
+      this.$mainApi.apiSendLoginSms(this.mobileNumber).then((res) => {
+        this.waitTime = 60;
+        this.intervaler = setInterval(() => {
+          this.waitTime --;
+          if (this.waitTime <= 0) {
+            clearInterval(this.intervaler);
+          }
+        }, 1000);
+      });
+    },
+    login() {
+      this.$mainApi.apiSmsLogin(this.mobileNumber, this.smsCode).then((res) => {
+        token.set(res.data);
+        this.getSelfInfo();
+      })
+    },
+    getSelfInfo() {
+      this.$mainApi.apiGetSelf().then(res => {
+        user.set(res.data);
+        this.toIndexPage();
+      });
+    },
+    toIndexPage() {
+      uni.navigateTo({
+        url: '/pages/index/index',
+      });
+    }
+  }
+});
 </script>
 
 <style scoped>
@@ -63,7 +109,9 @@ export default {};
 
 .bg-color {
   height: 40%;
-  background-color: #1c716c;
+  background-color: #009F96;
+  background: url('~@/static/mobile_login_slices/background@3x.png') no-repeat center;
+  background-size: cover;
 }
 
 .login-header {
@@ -111,7 +159,27 @@ export default {};
 }
 
 .right-input {
+  flex-grow: 1;
   padding: 8px 0px;
+  display: flex;
+}
+
+.right-input .captcha-btn {
+  color: #009F96;
+  font-size: 16px;
+}
+
+.right-input .captcha-btn .disabled {
+  color: #999999;
+}
+
+.right-input input {
+  flex-grow: 1;
+}
+
+.left-icon img {
+  width: 100%;
+  margin-bottom: -4px;
 }
 
 .submit-btn {
@@ -121,7 +189,7 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1c716c;
+  background-color: #009F96;
   border-radius: 25px;
 }
 </style>

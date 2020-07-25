@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/iconfont/iconfont.css">
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=xjSvVVXZc4VeyMTww6helKSDnQ2vzcR9"></script>
+  <title>Document</title>
+  <style>
+    html,body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .guide-container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-container {
+      width: 100%;
+      position: absolute;
+      top: 0px;
+      bottom: 60%;
+      left: 0px;
+    }
+
+    .main-container {
+      width: 100%;
+      position: absolute;
+      top: 35%;
+      bottom: 0px;
+      left: 0px;
+      background: #FFFFFF;
+      box-shadow: 0px 7px 16px 5px rgba(212,220,220,0.52);
+      border-radius:  16px;
+      overflow: auto;
+    }
+
+    .header-container {
+      height: 24px;
+      padding: 15px;
+      flex-shrink: 0;
+      display: flex;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+    }
+
+    .header-container .left,
+    .header-container .right {
+      font-size: 16px;
+      width: 30px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-container .center {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .ways-container {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .way {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    .way .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #DCDCDC;
+    }
+
+    .way .title img {
+      width: 24px;
+      flex-shrink: 0;
+    }
+
+    .way .title span {
+      color: #333333;
+      flex-grow: 1;
+      font-size: 18px;
+      padding-left: 5px;
+    }
+
+    .way .content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #DCDCDC;
+    }
+
+    .way .content:last-child {
+      border: unset;
+    }
+
+    .way .content .label {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .way .content .detail {
+      font-size: 16px;
+      font-weight: lighter;
+    }
+  </style>
+</head>
+<body>
+  <div class="guide-container">
+    <div class="map-container">
+      <div id="container"></div>
+    </div>
+    <view class="header-container">
+      <view class="left" onclick="backToIndex()">
+        <i class="iconfont icon-back"></i>
+      </view>
+      <view class="center"></view>
+      <view class="right"></view>
+    </view>
+    <div class="main-container">
+      <div class="ways-container">
+        <div class="way">
+          <div class="title">
+            <img src="/guide_slices/jichang@2x.png" alt="">
+            <span>距离机场</span>
+          </div>
+          <div class="content">
+            <div class="label">杭州萧山国际机场</div>
+            <div class="detail">距离机场70公里，打车约1小时20分钟到达。可乘坐 机场大巴滨江线->435路->机场至转塘专线->620路 /621路到达。</div>
+          </div>
+        </div>
+        <div class="way">
+          <div class="title">
+            <img src="/guide_slices/huochezhan@2x.png" alt="">
+            <span>距离火车站</span>
+          </div>
+          <div class="content">
+            <div class="label">富阳火车站</div>
+            <div class="detail">距离富阳站15公里，打车约30分钟到达。可乘坐606 路->2109路到达。</div>
+          </div>
+          <div class="content">
+            <div class="label">杭州站</div>
+            <div class="detail">距离杭州站44公里，打车约60分钟到达。可乘坐514 路->2109路到达。</div>
+          </div>
+        </div>
+        <div class="way">
+          <div class="title">
+            <img src="/guide_slices/ditiezhan@2x.png" alt="">
+            <span>距离地铁站</span>
+          </div>
+          <div class="content">
+            <div class="label">水澄桥站</div>
+            <div class="detail">距离水澄桥站30公里，打车约50分钟到达。可乘坐富 阳至菩提寺路专线/富阳至火车东站专线/514路 -> 2109路到达。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function backToIndex() {
+      uni.navigateBack();
+    }
+
+    function initMap() {
+      const map = new BMap.Map("container");
+      const point = new BMap.Point(116.404, 39.915);
+      map.centerAndZoom(point, 15);
+      map.enableScrollWheelZoom(true); 
+    }
+    initMap();
+  </script>
+</body>
+</html>
