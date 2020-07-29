@@ -28,7 +28,7 @@
             <img src="~@/static/index_slices/icon_01@3x.png" alt />
             <text>到达指引</text>
           </view>
-          <view class="nav-item">
+          <view class="nav-item" @click="toPage('/pages/scenic/index')"> 
             <img src="~@/static/index_slices/icon_02@3x.png" alt />
             <text>景点概括</text>
           </view>

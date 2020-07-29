@@ -19,6 +19,12 @@
 			}
 		},
 		{
+			"path": "pages/scenic/index",
+			"style": {
+				"navigationBarTitleText": "富春山居-景点概括"
+			}
+		},
+		{
 			"path": "pages/active/index",
 			"style": {
 				"navigationBarTitleText": "富春山居-活动"
