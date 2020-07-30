@@ -36,7 +36,7 @@
             <img src="~@/static/index_slices/icon_03@3x.png" alt />
             <text>周边</text>
           </view>
-          <view class="nav-item">
+          <view class="nav-item" @click="toPage('/pages/items/index')">
             <img src="~@/static/index_slices/icon_04@3x.png" alt />
             <text>游园项目</text>
           </view>

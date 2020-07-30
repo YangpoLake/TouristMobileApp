@@ -25,6 +25,12 @@
 			}
 		},
 		{
+			"path": "pages/items/index",
+			"style": {
+				"navigationBarTitleText": "富春山居-游园项目"
+			}
+		},
+		{
 			"path": "pages/active/index",
 			"style": {
 				"navigationBarTitleText": "富春山居-活动"
