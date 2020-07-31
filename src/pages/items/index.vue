@@ -1,62 +1,80 @@
- <template lang="html">
-<view class="items-container">
+<template lang="html">
+  <view class="items-container">
     <view class="header-container">
       <view class="left" @click="toPage('/pages/index/index')"><text class="iconfont icon-back"></text></view>
       <view class="center">游园项目</view>
-      <view class="right">
-      </view>
+      <view class="right"></view>
     </view>
     <view class="main-container">
-      	<view class="image-container">    	
+      <view class="image-container">    	
         <img class="images" src="~@/static/items_slices/rowboats.png">
-        <view calss="content">
-          <span class="fontstyle">游船 </span>
-          <span class="fontstyle2">¥</span>
-          <span class="fontstyle3">70</span>
-          <span class="fontstyle2">~¥</span>
-          <span class="fontstyle3">150</span>
-         </view>
+        <view class="content">
+          <view>
+            <span class="fontstyle">游船 </span>
+            <span class="fontstyle2">¥</span>
+            <span class="fontstyle3">70</span>
+            <span class="fontstyle2">~¥</span>
+            <span class="fontstyle3">150</span>
+          </view>
+          <view class="action">
+            <button size="mini">预约</button>
+          </view>
         </view>
-        </view>
-        <view class="image-container">  
+      </view>
+      <view class="image-container">  
         <img class="images"src="~@/static/items_slices/train.png">
-        <view calss="content"><span class="fontstyle">小火车 </span><span class="fontstyle2">¥</span><span class="fontstyle3">39</span><span class="fontstyle2">~¥</span><span class="fontstyle3">75</span>
+        <view class="content">
+          <view>
+            <span class="fontstyle">小火车 </span>
+            <span class="fontstyle2">¥</span>
+            <span class="fontstyle3">39</span>
+            <span class="fontstyle2">~¥</span>
+            <span class="fontstyle3">75</span>
+          </view>
+          <view class="action">
+            <button size="mini">预约</button>
           </view>
         </view>
+      </view>
 
-        <view class="image-container">  
+      <view class="image-container">  
         <img class="images"src="~@/static/items_slices/sightseeing_car.png">
-        <view calss="content"><span class="fontstyle">观光车</span><span class="fontstyle2">¥</span><span class="fontstyle3">9.9</span><span class="fontstyle2">~¥</span><span class="fontstyle3">15</span>
+        <view class="content">
+          <view>
+            <span class="fontstyle">观光车</span>
+            <span class="fontstyle2">¥</span>
+            <span class="fontstyle3">9.9</span>
+            <span class="fontstyle2">~¥</span>
+            <span class="fontstyle3">15</span>
+          </view>
+          <view class="action">
+            <button size="mini">预约</button>
           </view>
         </view>
-</view>
+      </view>
     </view>
   </view>
- </template>
+</template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
-     props: ["banner-list", "strategy-list", "activity-list"],
+  props: ["banner-list", "strategy-list", "activity-list"],
   data() {
-    return {
-    };
+    return {};
   },
-  onShow() {
-  },
+  onShow() {},
   methods: {
     toPage(path: string) {
       uni.navigateTo({
-        url: path
+        url: path,
       });
-    }
-  }
-
+    },
+  },
 });
-
 </script>
 
- <style>
+<style>
 .items-container {
   width: 100%;
   height: 100%;
@@ -64,49 +82,49 @@ export default Vue.extend({
   flex-direction: column;
 }
 
-.items-container .title{
+.items-container .title {
   font-size: 20px;
-  border-left:5px solid #006b65;
-  margin-bottom:15px;
-  margin-left:15px;
-  margin-top:15px;
-  padding-left:15px;
+  border-left: 5px solid #006b65;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-top: 15px;
+  padding-left: 15px;
 }
- 
-.items-container .image-container{
+
+.items-container .image-container {
   margin-left: 15px;
   margin-right: 15px;
 }
-.image-container{
+.image-container {
   margin-bottom: 15px;
 }
-.image-container .content{
-  width: 100%;
-  height: 100%;
+.image-container .content {
   display: flex;
-  flex-direction: column;
-
 }
-.image-container .images{
+.image-container .content .action button {
+  padding: 0px 15px;
+  margin-left: 5px;
+}
+.image-container .images {
   flex-grow: 1;
   width: 100%;
   height: 180px;
-  border-radius:10px;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
-.fontstyle{
+.fontstyle {
   font-family: PingFangSC-Medium;
-  font-size:15px
+  font-size: 15px;
 }
-.fontstyle2{
- font-family: Medium;
- font-size:10px
+.fontstyle2 {
+  font-family: Medium;
+  font-size: 10px;
 }
 
-.fontstyle3{
- font-family: PingFangSC-Medium;
- color:#FF6C00;
- font-size:15px
+.fontstyle3 {
+  font-family: PingFangSC-Medium;
+  color: #ff6c00;
+  font-size: 15px;
 }
 
 .header-container {
@@ -143,5 +161,4 @@ export default Vue.extend({
   width: 100%;
   position: relative;
 }
-
 </style>
