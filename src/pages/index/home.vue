@@ -45,6 +45,7 @@
       <view class="strategy-container">
         <view class="title">
           <text>旅游攻略</text>
+          <text @click="toFindPage">更多</text>
         </view>
         <view class="content">
           <view v-for="strategy in strategyList" :key="strategy.id" class="item">
@@ -57,13 +58,14 @@
       <view class="active-container">
         <view class="title">
           <text>游园活动</text>
+          <text @click="toFindPage">更多</text>
         </view>
         <view class="content">
           <view v-for="activity in activityList" :key="activity.id" class="item" @click="toPage('/pages/active/index?id=' + activity.id)">
             <img :src="activity.image_url" alt />
             <view class="message">
-              <text class="title">{{ activity.title }}</text>
-              <text class="detail">{{ activity.info }}</text>
+              <text class="title">{{ activity.title|common_ellipsis(10) }}</text>
+              <text class="detail">{{ activity.info|common_ellipsis(40) }}</text>
             </view>
           </view>
         </view>
@@ -87,6 +89,9 @@ export default Vue.extend({
       uni.navigateTo({
         url: path
       });
+    },
+    toFindPage() {
+      this.$emit("to-find-page");
     }
   }
 });
@@ -212,6 +217,9 @@ export default Vue.extend({
   border-left: 5px solid #006b65;
   margin-bottom: 15px;
   padding-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .strategy-container .content {

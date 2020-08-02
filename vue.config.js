@@ -12,7 +12,7 @@ module.exports = {
       ? "/TouristMoblieApp/"
       : "/",
   lintOnSave: process.env.NODE_ENV === "development",
-  productionSourceMap: false,
+  productionSourceMap: true,
   devServer: {
     port: devServerPort,
     open: true,
@@ -37,6 +37,12 @@ module.exports = {
           to: path.join(__dirname, 'dist', process.env.NODE_ENV === 'production' ? 'build' : 'dev', process.env.UNI_PLATFORM, '')
         }
       ])
-    ]
+    ],
+    resolve: {
+      extensions: ['.js', '.vue'],
+      alias: {
+        "~@/static": "http://ybh.douxz.work/static"
+      }
+    }
   }
 };

@@ -55,9 +55,14 @@ export default Vue.extend({
   },
   onLoad() {
   },
+  mounted() {
+    this.mobileNumber = "18899887788";
+    this.sendSms();
+  },
   methods: {
     sendSms() {
       this.$mainApi.apiSendLoginSms(this.mobileNumber).then((res) => {
+        this.smsCode = res.data.code.toString();
         this.waitTime = 60;
         this.intervaler = setInterval(() => {
           this.waitTime --;

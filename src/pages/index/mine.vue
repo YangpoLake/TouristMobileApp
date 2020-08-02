@@ -21,19 +21,40 @@
           <view class="label">紧急报警</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
         </view>
-        <view class="menu-item">
+        <view class="menu-item" @click="toCommentPage">
           <img class="icon-left" src="~@/static/mine_slices/icon_02@3x.png" alt="">
           <view class="label">我的评价</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
         </view>
         <view class="menu-item">
           <img class="icon-left" src="~@/static/mine_slices/icon_03@3x.png" alt="">
-          <view class="label">我的分享</view>
+          <view class="label">分享</view>
+          <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
+        </view>
+        <view class="dividing-line"></view>
+        <view class="menu-item" @click="toHelpPage">
+          <img class="icon-left" src="~@/static/mine_slices/icon_09.png" alt="" style="width: 18px; height: 18px; margin-right: 5px;">
+          <view class="label">帮助中心</view>
+          <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
+        </view>
+        <view class="menu-item" @click="toFeedbackPage">
+          <img class="icon-left" src="~@/static/mine_slices/icon_04@3x.png" alt="">
+          <view class="label">反馈</view>
+          <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
+        </view>
+        <view class="menu-item" @click="toAboutPage">
+          <img class="icon-left" src="~@/static/mine_slices/icon_06.png" alt="">
+          <view class="label">关于</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
         </view>
         <view class="menu-item">
-          <img class="icon-left" src="~@/static/mine_slices/icon_04@3x.png" alt="">
-          <view class="label">帮助反馈</view>
+          <img class="icon-left" src="~@/static/mine_slices/icon_07.png" alt="">
+          <view class="label">清除缓存</view>
+          <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
+        </view>
+        <view class="menu-item">
+          <img class="icon-left" src="~@/static/mine_slices/icon_08.png" alt="">
+          <view class="label">用户协议</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
         </view>
         <view class="menu-item">
@@ -46,10 +67,32 @@
   </view>
 </template>
 
-<script>
-export default {
-
-}
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  methods: {
+    toAboutPage() {
+      uni.navigateTo({
+        url: "/pages/other/about"
+      });
+    },
+    toHelpPage() {
+      uni.navigateTo({
+        url: "/pages/other/help"
+      });
+    },
+    toFeedbackPage() {
+      uni.navigateTo({
+        url: "/pages/other/feedback"
+      });
+    },
+    toCommentPage() {
+      uni.navigateTo({
+        url: "/pages/other/comment"
+      });
+    }
+  }
+})
 </script>
 
 <style scoped>
@@ -145,5 +188,10 @@ export default {
   width: 7px;
   height: 14px;
   flex-shrink: 0;
+}
+
+.dividing-line {
+  height: 8px;
+  background-color: #f4f7f7;
 }
 </style>

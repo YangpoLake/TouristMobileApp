@@ -2,7 +2,7 @@
   <view class="index-container">
     <view></view>
     <view class="page-container">
-      <home v-if="pageIndex === 'home'" :banner-list="bannerList" :strategy-list="strategyList" :activity-list="activityList" />
+      <home v-if="pageIndex === 'home'" :banner-list="bannerList" :strategy-list="strategyList" :activity-list="activityList" @to-find-page="changePage('find')" />
       <find v-if="pageIndex === 'find'" />
       <order v-if="pageIndex === 'order'" :order-list="orderList" @change-order-status="getOrders" />
       <mine v-if="pageIndex === 'mine'" />
@@ -13,11 +13,11 @@
         <img v-else src="~@/static/mine_slices/icon_home@3x.png" alt="">
         <text :class="pageIndex === 'home' ? 'active' : ''">首页</text>
       </view>
-      <view class="tab" @click="changePage('find')">
+      <!-- <view class="tab" @click="changePage('find')">
         <img v-if="pageIndex === 'find'" src="~@/static/index_slices/icon_find_1@3x.png" alt="">
         <img v-else src="~@/static/index_slices/icon_find@3x.png" alt="">
         <text :class="pageIndex === 'find' ? 'active' : ''">发现</text>
-      </view>
+      </view> -->
       <view class="tab" @click="changePage('order')">
         <img v-if="pageIndex === 'order'" src="~@/static/order_slices/icon_order_1@3x.png" alt="">
         <img v-else src="~@/static/index_slices/icon_order@3x.png" alt="">

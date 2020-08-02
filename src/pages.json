@@ -35,6 +35,36 @@
 			"style": {
 				"navigationBarTitleText": "富春山居-活动"
 			}
+		},
+		{
+			"path": "pages/other/about",
+			"style": {
+				"navigationBarTitleText": "富春山居-活动"
+			}
+		},
+		{
+			"path": "pages/other/callus",
+			"style": {
+				"navigationBarTitleText": "富春山居-活动"
+			}
+		},
+		{
+			"path": "pages/other/help",
+			"style": {
+				"navigationBarTitleText": "富春山居-活动"
+			}
+		},
+		{
+			"path": "pages/other/feedback",
+			"style": {
+				"navigationBarTitleText": "富春山居-活动"
+			}
+		},
+		{
+			"path": "pages/other/comment",
+			"style": {
+				"navigationBarTitleText": "富春山居-活动"
+			}
 		}
 	],
 	"globalStyle": {
