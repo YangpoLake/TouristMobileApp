@@ -7,7 +7,7 @@
     </view>
     <view class="main-container">
       <view class="image-container">    	
-        <img class="images" src="~@/static/items_slices/rowboats.png">
+        <img class="images" src="~@/static/items_slices/rowboats.jpg">
         <view class="content">
           <view>
             <span class="fontstyle">游船 </span>
@@ -22,7 +22,7 @@
         </view>
       </view>
       <view class="image-container">  
-        <img class="images"src="~@/static/items_slices/train.png">
+        <img class="images"src="~@/static/items_slices/train.jpg">
         <view class="content">
           <view>
             <span class="fontstyle">小火车 </span>
@@ -38,7 +38,7 @@
       </view>
 
       <view class="image-container">  
-        <img class="images"src="~@/static/items_slices/sightseeing_car.png">
+        <img class="images"src="~@/static/items_slices/sightseeing_car.jpg">
         <view class="content">
           <view>
             <span class="fontstyle">观光车</span>
