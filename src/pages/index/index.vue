@@ -81,7 +81,36 @@ export default Vue.extend({
     getOrders(status?: number) {
       status ? this.orderStatus = status : "";
       this.$mainApi.apiGetOrdersByPage(0, new Config().INDEX_ORDER_PAGE_SIZE, this.orderStatus).then((res) => {
-        this.orderList = res.data.data;
+        // this.orderList = res.data.data;
+        (this.orderList as any) = [
+          {
+            id: 1,
+            status: "defaulr",
+            image_url: "",
+            title: "订单一",
+            paid_through: "",
+            amount: "",
+            created_at: '2020-08-08 12:12'
+          },
+          {
+            id: 2,
+            status: "pendding",
+            image_url: "",
+            title: "订单二",
+            paid_through: "",
+            amount: "",
+            created_at: '2020-08-08 12:12'
+          },
+          {
+            id: 3,
+            status: "complete",
+            image_url: "",
+            title: "订单三",
+            paid_through: "",
+            amount: "",
+            created_at: '2020-08-08 12:12'
+          }
+        ];
       });
     }
   }

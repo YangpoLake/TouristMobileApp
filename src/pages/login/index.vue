@@ -115,7 +115,7 @@ export default Vue.extend({
 .bg-color {
   height: 40%;
   background-color: #009F96;
-  background: url('~@/static/mobile_login_slices/background@3x.png') no-repeat center;
+  background: url('~@/static/mobile_login_slices/background.png') no-repeat center;
   background-size: cover;
 }
 

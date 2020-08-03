@@ -39,11 +39,11 @@
             <view class="title">{{ order.title }}</view>
             <view class="detail">数量：{{ order.paid_through }}</view>
             <view class="detail">总价：{{ order.amount }}</view>
-            <view class="detail">下单时间：{{ order.created_at | common_date_format }} </view>
+            <view class="detail">下单时间：{{ order.created_at }} </view>
           </view>
           <view class="status">
-            <view class="pendding">待支付</view>
-            <view class="complete">已完成</view>
+            <view class="pendding" v-if="order.status === 'pendding'">待支付</view>
+            <view class="complete" v-if="order.status === 'complete'">已完成</view>
           </view>
         </view>
       </view>
@@ -158,6 +158,7 @@ export default Vue.extend({
 
 .order {
   height: 82px;
+  margin-bottom: 15px;
   padding: 20px 15px;
   background: #FFFFFF;
   border-radius: 8px;

@@ -16,7 +16,7 @@
     </view>
     <view class="main-container">
       <view class="menu-container">
-        <view class="menu-item">
+        <view class="menu-item" @click="toMobileCallPage">
           <img class="icon-left" src="~@/static/mine_slices/icon_01@3x.png" alt="">
           <view class="label">紧急报警</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
@@ -26,7 +26,7 @@
           <view class="label">我的评价</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
         </view>
-        <view class="menu-item">
+        <view class="menu-item" @click="toSharePage">
           <img class="icon-left" src="~@/static/mine_slices/icon_03@3x.png" alt="">
           <view class="label">分享</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
@@ -52,7 +52,7 @@
           <view class="label">清除缓存</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
         </view>
-        <view class="menu-item">
+        <view class="menu-item" @click="toDocPage">
           <img class="icon-left" src="~@/static/mine_slices/icon_08.png" alt="">
           <view class="label">用户协议</view>
           <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
@@ -89,6 +89,19 @@ export default Vue.extend({
     toCommentPage() {
       uni.navigateTo({
         url: "/pages/other/comment"
+      });
+    },
+    toDocPage() {
+      uni.navigateTo({
+        url: "/pages/other/doc"
+      });
+    },
+    toMobileCallPage() {
+      location.href = "tel:17621958573";
+    },
+    toSharePage() {
+      uni.navigateTo({
+        url: "/pages/other/share"
       });
     }
   }

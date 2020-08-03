@@ -7,23 +7,29 @@
     </view>
     <view class="main-container">
       <view class="tabs-container">
-        <view :class="{ 'tab-item': true, 'active': tabIndex === 'strategy' }" @click="changeTabIndex('strategy')">游园攻略</view>
-        <view :class="{ 'tab-item': true, 'active': tabIndex === 'activity' }" @click="changeTabIndex('activity')">游园活动</view>
+        <view
+          :class="{ 'tab-item': true, 'active': tabIndex === 'strategy' }"
+          @click="changeTabIndex('strategy')"
+        >游园攻略</view>
+        <view
+          :class="{ 'tab-item': true, 'active': tabIndex === 'activity' }"
+          @click="changeTabIndex('activity')"
+        >游园活动</view>
       </view>
       <view class="content-container">
         <view v-if="tabIndex === 'strategy'" class="strategy-container">
-          <view v-for="strategy in steategysList" :key="strategy.id" class="item">
+          <view v-for="strategy in steategysList" :key="strategy.id" class="item" @click="toPage('/pages/active/index?id=' + strategy.id)">
             <img :src="strategy.image_url" alt />
-            <text class="title">{{ strategy.title }}</text>
-            <text class="message">{{ strategy.info }}</text>
+            <text class="title">{{ strategy.title|common_ellipsis(4) }}</text>
+            <text class="message">{{ strategy.info|common_ellipsis(20) }}</text>
           </view>
         </view>
         <view v-if="tabIndex === 'activity'" class="active-container">
-          <view v-for="activity in activityList" :key="activity.id" class="item">
+          <view v-for="activity in activityList" :key="activity.id" class="item" @click="toPage('/pages/active/index?id=' + activity.id)">
             <img :src="activity.image_url" alt />
             <view class="message">
-              <text class="title">{{ activity.title }}</text>
-              <text class="detail">{{ activity.info }}</text>
+              <text class="title">{{ activity.title|common_ellipsis(4) }}</text>
+              <text class="detail">{{ activity.info|common_ellipsis(20) }}</text>
             </view>
           </view>
         </view>
@@ -32,8 +38,8 @@
   </view>
 </template>
 <script lang="ts">
-import Vue from 'vue'
-import Config from '../../Config'
+import Vue from "vue";
+import Config from "../../Config";
 
 export default Vue.extend({
   data() {
@@ -42,8 +48,8 @@ export default Vue.extend({
       strategysPage: 1,
       steategysList: [],
       activityPage: 1,
-      activityList: []
-    }
+      activityList: [],
+    };
   },
   mounted() {
     this.changeTabIndex("strategy");
@@ -55,17 +61,26 @@ export default Vue.extend({
       this.tabIndex = tab;
     },
     getStrategyByPage() {
-      this.$mainApi.apiGetStrategysByPage(1, new Config().FIND_STRATEGY_PAGE_SIZE).then((res) => {
-        this.steategysList = res.data.data;
-      });
+      this.$mainApi
+        .apiGetStrategysByPage(1, new Config().FIND_STRATEGY_PAGE_SIZE)
+        .then((res) => {
+          this.steategysList = res.data.data;
+        });
     },
     getActivityByPage() {
-      this.$mainApi.apiGetActivitysByPage(1, new Config().FIND_ACTIVITY_PAGE_SIZE).then((res) => {
-        this.activityList = res.data.data;
+      this.$mainApi
+        .apiGetActivitysByPage(1, new Config().FIND_ACTIVITY_PAGE_SIZE)
+        .then((res) => {
+          this.activityList = res.data.data;
+        });
+    },
+    toPage(path: string) {
+      uni.navigateTo({
+        url: path
       });
     }
-  }
-})
+  },
+});
 </script>
 <style scoped>
 .find-container {
@@ -73,7 +88,7 @@ export default Vue.extend({
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #F4F7F7;
+  background-color: #f4f7f7;
 }
 
 .header-container {
@@ -120,17 +135,17 @@ export default Vue.extend({
 }
 
 .tabs-container .tab-item.active {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .content-container {
   height: 100%;
   flex-grow: 1;
   display: flex;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
-.strategy-container  {
+.strategy-container {
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -193,6 +208,8 @@ export default Vue.extend({
   padding: unset;
   margin: unset;
   border: unset;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .active-container .item .message .detail {

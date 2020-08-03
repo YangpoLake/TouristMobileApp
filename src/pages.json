@@ -65,6 +65,31 @@
 			"style": {
 				"navigationBarTitleText": "富春山居-活动"
 			}
+		},
+		{
+			"path": "pages/other/periphery",
+			"style": {
+				"navigationBarTitleText": "富春山居-周边"
+			}
+		},
+		{
+			"path": "pages/other/doc",
+			"style": {
+				"navigationBarTitleText": "富春山居-周边"
+			}
+		},
+		{
+			"path": "pages/other/share",
+			"style": {
+				"navigationBarTitleText": "富春山居-周边"
+			}
+		}
+		,
+		{
+			"path": "pages/order/push",
+			"style": {
+				"navigationBarTitleText": "富春山居-周边"
+			}
 		}
 	],
 	"globalStyle": {

@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6537181",
+      "name": "定位",
+      "font_class": "dingwei1",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "1177747",
+      "name": "添加图片",
+      "font_class": "tianjiatupian",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "4652338",
+      "name": "加",
+      "font_class": "jia",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "3771138",
+      "name": "团购",
+      "font_class": "tuangou",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
       "icon_id": "2432704",
       "name": "定位",
       "font_class": "dingwei",

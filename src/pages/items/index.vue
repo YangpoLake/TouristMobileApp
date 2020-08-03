@@ -6,7 +6,7 @@
       <view class="right"></view>
     </view>
     <view class="main-container">
-      <view class="image-container">    	
+      <view class="image-container" @click="toPage('/pages/order/push')">    	
         <img class="images" src="~@/static/items_slices/rowboats.jpg">
         <view class="content">
           <view>
@@ -21,7 +21,7 @@
           </view>
         </view>
       </view>
-      <view class="image-container">  
+      <view class="image-container" @click="toPage('/pages/order/push')">  
         <img class="images"src="~@/static/items_slices/train.jpg">
         <view class="content">
           <view>
@@ -37,7 +37,7 @@
         </view>
       </view>
 
-      <view class="image-container">  
+      <view class="image-container" @click="toPage('/pages/order/push')">  
         <img class="images"src="~@/static/items_slices/sightseeing_car.jpg">
         <view class="content">
           <view>

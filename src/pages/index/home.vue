@@ -1,7 +1,7 @@
 <template>
   <view class="home-container">
     <view class="header-container">
-      <view class="left"></view>
+      <view class="left"><text class="iconfont icon-dingwei1"></text> 杭州</view>
       <view class="center">首页</view>
       <view class="right">晴/30℃</view>
     </view>
@@ -32,7 +32,7 @@
             <img src="~@/static/index_slices/icon_02@3x.png" alt />
             <text>景点概括</text>
           </view>
-          <view class="nav-item">
+          <view class="nav-item" @click="toPage('/pages/other/periphery')">
             <img src="~@/static/index_slices/icon_03@3x.png" alt />
             <text>周边</text>
           </view>
@@ -48,7 +48,7 @@
           <text @click="toFindPage">更多</text>
         </view>
         <view class="content">
-          <view v-for="strategy in strategyList" :key="strategy.id" class="item">
+          <view v-for="strategy in strategyList" :key="strategy.id" class="item" @click="toPage('/pages/active/index?id=' + strategy.id)">
             <img :src="strategy.image_url" alt />
             <text class="title">{{ strategy.title }}</text>
             <text class="message">{{ strategy.info }}</text>
@@ -96,7 +96,6 @@ export default Vue.extend({
   }
 });
 </script>
-
 <style scoped>
 .home-container {
   width: 100%;
@@ -141,8 +140,11 @@ export default Vue.extend({
   width: 100px;
   flex-shrink: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.header-container .right {
+  flex-direction: row-reverse;
 }
 
 .header-container .center {
@@ -164,7 +166,7 @@ export default Vue.extend({
 }
 
 .swiper-container .swiper {
-  height: 164px;
+  height: 40vw;
   border-radius: 5px;
   overflow: hidden;
 }

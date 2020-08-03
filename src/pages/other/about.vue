@@ -24,7 +24,7 @@
               <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
             </view>
           </view>
-          <view class="item">
+          <view class="item" @click="toDocPage">
             <view class="left">服务条款</view>
             <view class="right">
               <img class="icon-right" src="~@/static/mine_slices/icon_right@3x.png" alt="">
@@ -46,6 +46,11 @@ export default Vue.extend({
     },
     toBack() {
       uni.navigateBack({ delta: 1 })
+    },
+    toDocPage() {
+      uni.navigateTo({
+        url: "/pages/other/doc"
+      });
     }
   }
 })

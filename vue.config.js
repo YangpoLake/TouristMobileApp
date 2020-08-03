@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 // use administrator privileges to execute the command line.
 // For example, on Mac: sudo npm run / sudo yarn
 const devServerPort = 9527;
-
 module.exports = {
   publicPath:
     process.env.NODE_ENV === "production"
@@ -37,12 +36,6 @@ module.exports = {
           to: path.join(__dirname, 'dist', process.env.NODE_ENV === 'production' ? 'build' : 'dev', process.env.UNI_PLATFORM, '')
         }
       ])
-    ],
-    resolve: {
-      extensions: ['.js', '.vue'],
-      alias: {
-        "~@/static": "http://ybh.douxz.work/static"
-      }
-    }
+    ]
   }
 };
